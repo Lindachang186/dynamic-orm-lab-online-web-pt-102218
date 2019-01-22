@@ -57,11 +57,9 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  def self.find_by(keyword: value)
-    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute} = #{value}"
+  def self.find_by(attribute)
+    sql = "SELECT * FROM #{self.table_name} WHERE '#{attribute.keys[0]}' = '#{attribute.values.first}'"
     DB[:conn].execute(sql)
   end
-
-
 
 end
