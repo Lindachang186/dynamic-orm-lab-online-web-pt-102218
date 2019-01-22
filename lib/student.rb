@@ -8,8 +8,8 @@ class Student < InteractiveRecord
     attr_accessor col_name.to_sym
   end
 
-  def self.find_by(keyword:value)
-    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute} = #{value}"
+  def self.find_by(keyword: value)
+    sql = "SELECT * FROM #{self.table_name} WHERE '#{attribute}' = '#{value}'"
     DB[:conn].execute(sql)
   end
 
